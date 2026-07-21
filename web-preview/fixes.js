@@ -17,7 +17,10 @@
   const modal = document.querySelector("#modal");
 
   backButton.onclick = () => {
-    const [title, body] = reflections[reflectionIndex % reflections.length];
+    const nextNumber = reflectionIndex + 1;
+    const [title, body] = nextNumber === 3
+      ? ["你已经回望了三次。", "如果你觉得现在很痛苦，也许你已经走到了谷底。别再反复惩罚以前的自己——走过的路终会推着你，慢慢去往未来。"]
+      : reflections[reflectionIndex % reflections.length];
     reflectionIndex += 1;
     modal.innerHTML = `<div class="modal"><div class="dialog">
       <span class="lookback-index">第 ${String(reflectionIndex).padStart(2, "0")} 次回望</span>
