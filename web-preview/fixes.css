@@ -1,0 +1,91 @@
+.choiceBtn {
+  min-height: 50px;
+  padding: 0 25px;
+  border: 1px solid #ffffff24;
+  background: #ffffff07;
+  color: #c6cece;
+  cursor: pointer;
+  box-shadow: none;
+  transition: border-color .22s, background .22s, color .22s, transform .22s;
+}
+
+.choiceBtn:hover,
+.choiceBtn:focus-visible {
+  border-color: #d8b97f;
+  background: #d8b97f20;
+  color: #fff1d2;
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.choiceBtn:active {
+  transform: translateY(0);
+  background: #ffffff0b;
+}
+
+.lookback-index {
+  display: block;
+  color: #d8b97f;
+  font-size: 11px;
+  letter-spacing: .24em;
+  margin-bottom: 18px;
+}
+
+.app {
+  background: radial-gradient(circle at 72% 24%, rgba(255,232,169,.58) 0, transparent 28%),
+              linear-gradient(145deg, #547c88, #8aa7a6 55%, #d7b987);
+}
+
+.app.warm {
+  background: radial-gradient(circle at 48% 22%, rgba(255,229,164,.72), transparent 30%),
+              linear-gradient(145deg, #9b7b51, #d4aa6d 55%, #718f91);
+}
+
+.app.rainy {
+  background: linear-gradient(145deg, #577985, #90a9a5 62%, #c3af83);
+}
+
+.app.dawn {
+  background: radial-gradient(circle at 68% 14%, rgba(255,240,186,.75), transparent 32%),
+              linear-gradient(145deg, #6f98a0, #d0b27b);
+}
+
+h1 { font-size: clamp(30px, 4.2vw, 56px); }
+h2 { font-size: clamp(23px, 2.8vw, 38px); }
+.window::after { transform: none; right: auto; left: 8%; font-size: 16px; }
+
+.endingPhone {
+  width: min(390px, 88vw);
+  height: min(650px, 72vh);
+  min-height: 520px;
+  margin: auto;
+  padding: 14px;
+  border: 1px solid rgba(255,255,255,.68);
+  border-radius: 34px;
+  background: linear-gradient(165deg, rgba(250,247,237,.98), rgba(224,233,228,.97));
+  color: #263437;
+  box-shadow: 0 35px 90px rgba(27,43,46,.34), inset 0 0 0 5px rgba(255,255,255,.25);
+  display: flex;
+  flex-direction: column;
+}
+
+.endingPhoneHead { display:flex; align-items:center; justify-content:space-between; padding:12px 8px 18px; border-bottom:1px solid rgba(38,52,55,.12); }
+.endingPhoneHead > span { font-size:24px; color:#7c8c8d; }
+.endingPhoneHead div { display:flex; flex-direction:column; }
+.endingPhoneHead b { font-size:14px; }
+.endingPhoneHead small { font-size:10px; color:#809092; margin-top:3px; }
+.onlineDot { width:8px; height:8px; border-radius:50%; background:#79a47c; }
+.endingPhoneBody { display:flex; flex-direction:column; gap:11px; overflow:auto; padding:22px 5px; text-align:left; flex:1; }
+.endingStatus { align-self:center; color:#829092; font-size:10px; letter-spacing:.14em; }
+.endingMsg { align-self:flex-start; max-width:88%; margin:0; padding:11px 14px; border-radius:15px 15px 15px 4px; background:#fff; box-shadow:0 6px 18px rgba(33,52,54,.08); font-size:13px; line-height:1.65; }
+.endingMsg.gold { background:#efe2c2; color:#4f4027; }
+.endingInput { height:42px; border:1px solid rgba(38,52,55,.14); border-radius:22px; padding:10px 12px 10px 16px; color:#718082; font-size:12px; text-align:left; }
+.endingInput span { float:right; width:22px; height:22px; margin-top:-1px; border-radius:50%; display:grid; place-items:center; background:#c3a765; color:#fff; }
+
+@media (max-width: 700px) {
+  h1 { font-size: 31px; }
+  h2 { font-size: 22px; }
+  .window::after { font-size: 14px; }
+  .endingPhone { height:70vh; min-height:500px; border-radius:28px; padding:11px; }
+  .endingMsg { font-size:12px; line-height:1.55; padding:10px 12px; }
+}
