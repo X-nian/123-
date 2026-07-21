@@ -15,19 +15,44 @@
   let reflectionIndex = 0;
   const backButton = document.querySelector("#back");
   const modal = document.querySelector("#modal");
+  const forward = window.go;
+
+  window.go = (name, tone) => {
+    storyTrail.push(current);
+    forward(name, tone);
+  };
 
   backButton.onclick = () => {
     const nextNumber = reflectionIndex + 1;
-    const [title, body] = nextNumber === 3
-      ? ["你已经回望了三次。", "如果你觉得现在很痛苦，也许你已经走到了谷底。别再反复惩罚以前的自己——走过的路终会推着你，慢慢去往未来。"]
-      : reflections[reflectionIndex % reflections.length];
+    let [title, body] = reflections[reflectionIndex % reflections.length];
+    if (nextNumber === 3) {
+      title = "你已经回望了三次。";
+      body = "如果你觉得现在很痛苦，也许你已经走到了谷底。别再反复惩罚以前的自己——走过的路终会推着你，慢慢去往未来。";
+    }
+    if (nextNumber === 5) {
+      title = "第五次回望，你仍在寻找那个答案。";
+      body = "痛苦不代表你走错了，它只是提醒你：这里曾经很重要。你已经走过谷底，也正在被时间推向新的地方。允许自己再看一眼，然后把目光留给仍会发生的生活。";
+    }
+    if (nextNumber === 10) {
+      title = "第十次回望，档案馆为你保留一次例外。";
+      body = "你曾在谷底责怪过去，也曾反复寻找答案。现在你终于明白：回去不能改写人生，却可以帮助你重新看清刚才的选择。这一次，你可以倒回上一界面，再认真看一眼。";
+    }
     reflectionIndex += 1;
+    const canReturn = nextNumber === 10 && storyTrail.length > 0;
     modal.innerHTML = `<div class="modal"><div class="dialog">
       <span class="lookback-index">第 ${String(reflectionIndex).padStart(2, "0")} 次回望</span>
       <h2>${title}</h2><p>${body}</p>
-      <button class="btn" id="close-lookback">我知道了，继续向前</button>
+      <button class="btn" id="close-lookback">${canReturn ? "倒回上一界面" : "我知道了，继续向前"}</button>
     </div></div>`;
-    document.querySelector("#close-lookback").onclick = () => { modal.innerHTML = ""; };
+    document.querySelector("#close-lookback").onclick = () => {
+      if (canReturn) {
+        current = storyTrail.pop();
+        modal.innerHTML = "";
+        view();
+        return;
+      }
+      modal.innerHTML = "";
+    };
   };
 
   history.pushState({ story: true }, "", location.href);

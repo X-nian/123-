@@ -12,9 +12,9 @@
 
 .choiceBtn:hover,
 .choiceBtn:focus-visible {
-  border-color: #ffe0a0;
-  background: #6f583b77;
-  color: #fff1d2;
+  border-color: #ffe0a0 !important;
+  background: #6f583b !important;
+  color: #fff !important;
   transform: translateY(-2px);
   outline: none;
 }
@@ -56,14 +56,21 @@
 
 /* v0.8：关键文字使用暖深色与背景形成反差，不再依赖灰白色。 */
 .typedLine { color:#ffd26f; text-shadow:0 2px 18px rgba(65,38,8,.42); }
-.afterFadeQuote { position:absolute; inset:0; margin:auto; width:max-content; max-width:82%; height:max-content; color:#ffcf68; font-size:clamp(18px,2.5vw,27px); font-weight:750; line-height:1.7; opacity:0; transform:translateY(10px); animation:afterThought 1.1s ease 4.8s forwards; }
+.typedLine.gone { opacity:0!important; visibility:hidden!important; filter:blur(8px); border-color:transparent; }
+.afterFadeQuote { position:absolute; inset:0; margin:auto; width:max-content; max-width:82%; height:max-content; color:#ffcf68; font-size:clamp(18px,2.5vw,27px); font-weight:750; line-height:1.7; opacity:0; visibility:hidden; transform:translateY(10px); animation:none; }
+.afterFadeQuote.show { visibility:visible; animation:afterThought 1.1s ease forwards; }
 @keyframes afterThought { to { opacity:1; transform:translateY(0); } }
 .slowMeaning { color:#3c2912; background:#f3d78b; width:max-content; max-width:92%; margin:16px auto; padding:17px 25px; border-radius:18px; opacity:0; transform:translateY(8px); animation:meaningIn 1.8s ease .5s forwards; box-shadow:0 16px 40px rgba(39,54,55,.2); }
 .slowMeaning small { color:#5e4526; }
 @keyframes meaningIn { to { opacity:1; transform:translateY(0); } }
 .memoryDialogue { min-height:108px; display:flex; flex-direction:column; justify-content:center; gap:12px; }
-.questionSlow { color:#ffd36f; opacity:0; animation:meaningIn 1.4s ease .35s forwards; }
-.answerSlow { display:block; color:#ffb15f!important; font-size:.64em; opacity:0; animation:meaningIn 1.2s ease 1.9s forwards; }
+.memoryField { width:min(820px,90vw); min-height:310px; margin:10px auto 5px; position:relative; }
+.memoryField .rain { position:absolute; inset:50% auto auto 50%; transform:translate(-50%,-50%); opacity:.72; }
+.memoryPhrase { position:absolute; z-index:2; padding:18px 23px; border-radius:18px; font-weight:800; line-height:1.5; box-shadow:0 18px 46px rgba(29,48,52,.2); }
+.memoryLeft { left:2%; top:8%; color:#36250e; background:#f4d47d; font-size:clamp(24px,3.4vw,39px); text-align:left; opacity:0; transform:translateY(8px); animation:meaningIn 1.6s ease .35s forwards; }
+.memoryRight { right:1%; bottom:6%; min-width:min(360px,72vw); color:#fff4df; background:#315861; border:1px solid rgba(255,209,111,.76); font-size:clamp(23px,3vw,36px); text-align:right; }
+.questionSlow { display:block; color:#ffd36f; opacity:0; animation:meaningIn 1.4s ease 1.45s forwards; }
+.answerSlow { display:block; margin-top:10px; color:#ffae55!important; font-size:.72em; opacity:0; animation:meaningIn 1.2s ease 2.9s forwards; }
 .loadingDots i { font-style:normal; opacity:.18; animation:dotWait 1.2s infinite; }
 .loadingDots i:nth-child(2) { animation-delay:.2s; }
 .loadingDots i:nth-child(3) { animation-delay:.4s; }
@@ -129,4 +136,24 @@ h2 { font-size: clamp(23px, 2.8vw, 38px); }
   .msg,.draft { font-size:14px; }
   .afterFadeQuote { font-size:18px; max-width:86%; }
   .choiceFootnote { font-size:13px; padding:12px 14px; }
+  .memoryField { min-height:330px; width:100%; }
+  .memoryField .rain { font-size:100px; opacity:.42; }
+  .memoryPhrase { position:absolute; max-width:82vw; padding:15px 18px; }
+  .memoryLeft { left:0; top:8px; font-size:clamp(23px,7vw,31px); }
+  .memoryRight { right:0; bottom:10px; min-width:74vw; font-size:clamp(22px,6.5vw,29px); }
+  .stage { overflow:hidden; padding:12px 0 18px; }
+  .scene { max-height:100%; }
+  .finalScene { height:100%; display:flex; flex-direction:column; justify-content:center; gap:10px; }
+  .finalScene .twolines { grid-template-columns:1fr 1fr; gap:8px; margin:0; }
+  .finalScene .line { padding:11px 10px; min-height:150px; font-size:13px; }
+  .finalScene .line small,.finalScene .line b,.finalScene .line span { margin:5px 0; line-height:1.45; }
+  .finalScene .line b { font-size:14px; }
+  .finalScene .choiceTitle { margin:4px 0; }
+  .finalScene .choiceTitle h2 { margin:0 0 5px; font-size:21px; line-height:1.35; }
+  .finalScene .choiceTitle .sub { margin:0; font-size:13px; line-height:1.45; }
+  .finalScene .roads { gap:8px; }
+  .finalScene .roads button { min-height:77px; padding:10px 12px; }
+  .finalScene .roads strong { font-size:15px; margin-bottom:4px; }
+  .finalScene .roads small { font-size:11px; line-height:1.4; }
+  .finalScene .choiceFootnote { margin:0; padding:9px 12px; font-size:12px; line-height:1.45; }
 }
