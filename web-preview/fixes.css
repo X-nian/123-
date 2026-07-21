@@ -1,9 +1,10 @@
 .choiceBtn {
-  min-height: 50px;
+  min-height: 54px;
   padding: 0 25px;
-  border: 1px solid #ffffff24;
-  background: #ffffff07;
-  color: #c6cece;
+  border: 1px solid #ffffff70;
+  background: #17383e88;
+  color: #f7f8f3;
+  font-weight: 650;
   cursor: pointer;
   box-shadow: none;
   transition: border-color .22s, background .22s, color .22s, transform .22s;
@@ -11,8 +12,8 @@
 
 .choiceBtn:hover,
 .choiceBtn:focus-visible {
-  border-color: #d8b97f;
-  background: #d8b97f20;
+  border-color: #ffe0a0;
+  background: #6f583b77;
   color: #fff1d2;
   transform: translateY(-2px);
   outline: none;
@@ -20,7 +21,7 @@
 
 .choiceBtn:active {
   transform: translateY(0);
-  background: #ffffff0b;
+  background: #17383ecc;
 }
 
 .lookback-index {
@@ -35,6 +36,23 @@
   background: radial-gradient(circle at 72% 24%, rgba(255,232,169,.58) 0, transparent 28%),
               linear-gradient(145deg, #547c88, #8aa7a6 55%, #d7b987);
 }
+
+/* v0.6：阅读优先。让文字从装饰层回到叙事主层。 */
+.scene { text-shadow: 0 2px 18px rgba(8, 20, 23, .34); }
+.scene h1,.scene h2 { color:#fffdf6; font-weight:650; letter-spacing:.015em; }
+.sub { color:#eef2ed; font-size:16px; font-weight:520; }
+.eyebrow { color:#ffe5a8; font-size:12px; font-weight:700; }
+.phone { border-color:rgba(255,255,255,.62); background:rgba(12,25,29,.94); }
+.phoneHead { color:#fff; font-weight:700; }
+.msg { color:#fff; font-size:15px; line-height:1.55; background:#30474d; }
+.msg.me { background:#7a633c; }
+.draft { color:#fff8e9; font-size:15px; background:rgba(255,255,255,.08); }
+.mini { color:#f4f6f1; font-size:15px; line-height:1.7; }
+.cards div,.line { color:#fff; font-size:16px; }
+.cards small,.line small,.line span { color:#e1e8e5; }
+.roads button { color:#fff; font-weight:700; font-size:16px; }
+.dialog { box-shadow:0 35px 100px rgba(0,0,0,.55); }
+.dialog p { color:#eef2ed; font-size:16px; }
 
 .app.warm {
   background: radial-gradient(circle at 48% 22%, rgba(255,229,164,.72), transparent 30%),
@@ -87,5 +105,7 @@ h2 { font-size: clamp(23px, 2.8vw, 38px); }
   h2 { font-size: 22px; }
   .window::after { font-size: 14px; }
   .endingPhone { height:70vh; min-height:500px; border-radius:28px; padding:11px; }
-  .endingMsg { font-size:12px; line-height:1.55; padding:10px 12px; }
+  .endingMsg { font-size:14px; line-height:1.6; padding:10px 12px; }
+  .sub { font-size:15px; }
+  .msg,.draft { font-size:14px; }
 }
